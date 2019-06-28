@@ -53,7 +53,11 @@ module.exports = {
       {
         test: /\.(png|jpe?g|gif)$/,
         loader: "url-loader?limit=8000&name=images/[name].[ext]"
-      }
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+    }
     ]
   },
   devServer: {
