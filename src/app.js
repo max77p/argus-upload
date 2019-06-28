@@ -18,11 +18,11 @@ class App extends Component {
         <Switch>
           <Route path="/login" component={Authentication} />
           <Route exact path="/" component={Authentication} />
-          {/* <PasswordChangeRoute
+          <PasswordChangeRoute
             authenticated={this.props.changePass}
             path="/changePass"
             component={ChangePass}
-          /> */}
+          />
           <MFAChangeRoute
             multiFactor={this.props.multiFactor}
             path="/mfa"
@@ -34,7 +34,7 @@ class App extends Component {
             component={Portal}
           /> */}
           <Route path="/portal" component={Portal}/>
-          <Route path="/changePass" component={ChangePass}/>
+          {/* <Route path="/changePass" component={ChangePass}/> */}
           {/* <Route authenticated={this.props.changePass} path="/changePass" component={ChangePass} /> */}
           <Route path="*" component={Authentication} />
         </Switch>
