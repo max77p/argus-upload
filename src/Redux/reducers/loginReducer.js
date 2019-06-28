@@ -65,11 +65,6 @@ const reducer = (state = initialState, action) => {
         loading: false,
         loggedIn: false
       }
-      case 'LOGOUTUSER':
-      return{
-        ...state,
-        loggedIn:false
-      }
       default:
       //will not execute
   }

@@ -1,11 +1,11 @@
 import { combineReducers } from 'redux';
+// import simpleReducer from './simpleReducer';
 import loginReducer from './loginReducer';
-import contactReducer from "./contactReducer";
-
+import uploadReducer from "./uploadReducer";
 
 const rootReducer= combineReducers({
-    loginR:loginReducer,
-    contactR:contactReducer
+    login:loginReducer,
+    afterUpload:uploadReducer
 })
 
 export default rootReducer;

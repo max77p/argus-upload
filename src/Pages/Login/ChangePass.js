@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import logo from "../../assets/images/test.jpg";
-import * as actions from "../../Redux/actions/loginAction";
-import classes from "./AuthStyle.css";
+import logo from "../../assets/Images/riocanLogo.svg";
+import * as actions from "../../redux/actions/loginAction";
+import * as style from "./authStyle.css";
 import { connect } from "react-redux";
 
 class ChangePass extends Component {
@@ -17,7 +17,6 @@ class ChangePass extends Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.validateForm = this.validateForm.bind(this);
     this.handleCheckBoxClick = this.handleCheckBoxClick.bind(this);
-    console.log("hello from changepass")
   }
 
   validateForm(e) {
@@ -80,28 +79,28 @@ class ChangePass extends Component {
     let form = null;
 
     if (error) {
-      form = <p className="text-center custom-message">{error}</p>;
+      form = <p class="text-center custom-message">{error}</p>;
     } else {
       form = (
-        <p className="text-center custom-message">
+        <p class="text-center custom-message">
           We have detected this is your first time logging in. Please change
           your password
         </p>
       );
     }
     return (
-      <div className={[classes["auth-wrapper"],classes["auth-fadeInDown"]].join(" ")}>
-        <div id={classes["auth-form-content"]}>
-          <div className={[classes["auth-fadeIn"],classes["auth-first"],classes["auth-changepass-logo"]].join(" ")}>
-            <img src={logo} id={classes["auth-icon"]} alt="User Icon" />
+      <div className={`${style["auth-wrapper"]} ${style["auth-fadeInDown"]}`}>
+        <div id={style["auth-form-content"]}>
+          <div className={`${style["auth-fadeIn"]} ${style["auth-first"]} ${style["auth-changepass-logo"]}`}>
+            <img src={logo} id={style["auth-icon"]} alt="User Icon" />
           </div>
           {form}
-          <p id="errMsg"/>
+          <p id={style["errMsg"]} />
           <form onSubmit={this.handleSubmit}>
             <input
               type="password"
-              id="auth-password"
-              className={[classes["auth-fadeIn"],classes["auth-second"]].join(" ")}
+              id={style["auth-password"]}
+              className={`${style["auth-fadeIn"]} ${style["auth-second"]}`}
               name="newPassword"
               placeholder="New Password"
               onChange={this.handleChange}
@@ -109,8 +108,8 @@ class ChangePass extends Component {
             />
             <input
               type="password"
-              id="auth-password"
-              className={[classes["auth-fadeIn"],classes["auth-third"]].join(" ")}
+              id={style["auth-password"]}
+              className={`${style["auth-fadeIn"]} ${style["auth-third"]}`}
               name="confirmPassword"
               placeholder="Repeat Password"
               onChange={this.handleChange}
@@ -118,11 +117,11 @@ class ChangePass extends Component {
             />
             <input
               type="submit"
-              className={[classes["auth-fadeIn"],classes["auth-fourth"],classes["auth-changepass-submit"]].join(" ")}
+              className={`${style["auth-fadeIn"]} ${style["auth-fourth"]} ${style["auth-changepass-submit"]}`}
               value="Change Password"
             />
           </form>
-          <div id={classes["auth-form-footer"]}>
+          <div id={style["auth-form-footer"]}>
             <div class="form-check form-check-inline">
             <a class="auth-check-label" for="inlineCheckbox">
                 I Accept
@@ -130,14 +129,14 @@ class ChangePass extends Component {
               <input
                 class="auth-check-input"
                 type="checkbox"
-                id="inlineCheckbox"
+                id={style["inlineCheckbox"]}
                 onChange={this.handleCheckBoxClick}
                 value={this.state.checked}
               />
               
             </div>
             <a
-              className={classes["auth-underline-hover"]}
+              className={style["auth-underline-hover"]}
               target="_blank"
               rel="noopener noreferrer"
               href="https://docs.google.com/document/d/e/2PACX-1vQrT4j3pMP461pQFUuE-lfdQ2cOCVwGTmJa2nlOD7saWqymHVVrWhSIwaxkQ8kJUOxjju1nPbNZw8Vp/pub"
@@ -152,21 +151,20 @@ class ChangePass extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log(state);
+  // console.log(state);
   return {
-    changePass: state.loginR.changePass,
-    // filename: state.afterUpload.fileName,
-    // statusOk: state.afterUpload.s3positive,
-    // statusErr: state.afterUpload.s3negative,
-    email: state.loginR.user,
-    acToken: state.loginR.acToken,
-    idToken: state.loginR.idToken,
-    // uploadProgress: state.afterUpload.uploadProgress,
-    // fileTypeError: state.afterUpload.fileTypeError,
-    // signedOut: state.afterUpload.signOut,
-    username: state.loginR.user,
-    session: state.loginR.session,
-    error: state.loginR.error
+    filename: state.afterUpload.fileName,
+    statusOk: state.afterUpload.s3positive,
+    statusErr: state.afterUpload.s3negative,
+    email: state.login.user,
+    acToken: state.login.acToken,
+    idToken: state.login.idToken,
+    uploadProgress: state.afterUpload.uploadProgress,
+    fileTypeError: state.afterUpload.fileTypeError,
+    signedOut: state.afterUpload.signOut,
+    username: state.login.user,
+    session: state.login.session,
+    error: state.login.error
   };
 };
 const mapDispatchToProps = dispatch => {
