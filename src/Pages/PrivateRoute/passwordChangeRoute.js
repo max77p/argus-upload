@@ -6,7 +6,7 @@ function PasswordChangeRoute({ component: Component, authenticated, ...rest }) {
   return (
     <Route
       {...rest}
-      render={(props) => authenticated==="changePass" ?(
+      render={(props) => authenticated==="changepass" ?(
       <Component {...props} /> ):(<Redirect to={{ pathname: '/login', state: { from: props.location } }} />)
       }
     />

@@ -10,6 +10,7 @@ const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 
 module.exports = (env, argv) => {
+  console.log(argv.mode)
   const SERVER_PATH =
     argv.mode === "production" ? "./server-prod.js" : "./server-dev.js";
 
@@ -43,15 +44,15 @@ module.exports = (env, argv) => {
         }
       ]
     },
-    devServer: {
-      port: 3000,
-      open: true,
-      proxy: {
-        "/main": {
-          target: "http://localhost:8080"
-        }
-      },
-      historyApiFallback: true
-    },
+    // devServer: {
+    //   port: 3000,
+    //   open: true,
+    //   proxy: {
+    //     "/": {
+    //       target: "http://localhost:8080"
+    //     }
+    //   },
+    //   historyApiFallback: true
+    // },
   };
 };

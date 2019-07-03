@@ -45,7 +45,7 @@ class ChangePass extends Component {
   handleSubmit(event) {
     event.preventDefault();
     var statusMsg = document.getElementById("errMsg");
-    statusMsg.innerHTML = " ";
+    // statusMsg.innerHTML = " ";
     if (this.validateForm()) {
     //   console.log("everything good");
     }
@@ -153,18 +153,18 @@ class ChangePass extends Component {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-    filename: state.afterUpload.fileName,
-    statusOk: state.afterUpload.s3positive,
-    statusErr: state.afterUpload.s3negative,
-    email: state.login.user,
-    acToken: state.login.acToken,
-    idToken: state.login.idToken,
-    uploadProgress: state.afterUpload.uploadProgress,
-    fileTypeError: state.afterUpload.fileTypeError,
-    signedOut: state.afterUpload.signOut,
-    username: state.login.user,
-    session: state.login.session,
-    error: state.login.error
+    filename: state.uploadR.fileName,
+    statusOk: state.uploadR.s3positive,
+    statusErr: state.uploadR.s3negative,
+    email: state.loginR.user,
+    acToken: state.loginR.acToken,
+    idToken: state.loginR.idToken,
+    uploadProgress: state.uploadR.uploadProgress,
+    fileTypeError: state.uploadR.fileTypeError,
+    signedOut: state.uploadR.signOut,
+    username: state.loginR.user,
+    session: state.loginR.session,
+    error: state.loginR.error
   };
 };
 const mapDispatchToProps = dispatch => {

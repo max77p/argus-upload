@@ -3,11 +3,13 @@ const app = express();
 const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 const port = process.env.PORT || 8080;
+const routes= require('./routes');
+
 app.use(express.static("build"));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-require("./routes")(app);
-
+// require("./routes")(app);
+app.use(routes)
 
 //connect to mongodb
 mongoose

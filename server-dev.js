@@ -3,12 +3,15 @@ const path = require('path');
 const app = express();
 const mongoose = require("mongoose");
 var bodyParser = require("body-parser");
+const port = process.env.PORT || 8080;
+
 
 app.use(express.static("build"));
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 require("./routes")(app);
+
+
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'));
 })
@@ -29,4 +32,4 @@ mongoose
 
 
 
-app.listen(8080, () => console.log("Listening on port 8080!"));
+app.listen(port, () => console.log("Listening on port 8080!"));

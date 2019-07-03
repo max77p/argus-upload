@@ -59,7 +59,7 @@ export const sendNewPass=(val)=>{
         // dispatch(authStart());
         return axios({
             method: 'post',
-            url: '/main/login/auth/sendNewPass',
+            url: '/login/auth/sendnewpass',
             data: val
         }).then(function (response) {
             // console.log(response);
@@ -92,7 +92,7 @@ export const sendMFA=(val)=>{
     return function (dispatch){
         return axios({
             method:'post',
-            url:'/main/login/auth/sendMFA',
+            url:'/login/auth/sendmfa',
             data:{
                 value:val
             }
@@ -118,7 +118,7 @@ export const api = (val) => {
         dispatch(authStart());
         return axios({
             method: 'post',
-            url: '/main/login/auth/authenticateuser',
+            url: '/login/auth/authenticateuser',
             data: {
                 value: val
             }

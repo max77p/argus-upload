@@ -1,13 +1,13 @@
 import axios from "axios";
 
 export const uploadFile = val => {
-  // console.log(val);
+  console.log(val);
   //val.data.email and val.data.actoken
   return function(dispatch) {
     // console.log(val);
     return axios({
       method: "post",
-      url: "/auth/coverter/csvjson",
+      url: "/portal/auth/coverter/csvjson",
       data: val.formData
     }).then(function(response) {
         // console.log(response);
@@ -33,7 +33,7 @@ export const checkAndSendToS3 = res => {
     dispatch(uploadProgress());
     axios({
       method: "post",
-      url: "/auth/transfer/checks3",
+      url: "/portal/auth/transfer/checks3",
       data: res
     }).then(function(response) {
       // console.log(response);
@@ -42,7 +42,7 @@ export const checkAndSendToS3 = res => {
         // console.log("found");
         axios({
           method: "post",
-          url: "/auth/transfer/sendtos3",
+          url: "/portal/auth/transfer/sendtos3",
           data: res
         }).then(function(data) {
           // console.log(data);

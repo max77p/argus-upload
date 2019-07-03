@@ -107,8 +107,8 @@ class Authentication extends Component {
       // console.log("yes");
     } else if (this.props.loggedIn) {
       return <Redirect to={{ pathname: "/portal" }} />;
-    } else if (changePass === "changePass") {
-      return <Redirect to={{ pathname: "/changePass" }} />;
+    } else if (changePass === "changepass") {
+      return <Redirect to={{ pathname: "/changepass" }} />;
     }
 
     return <div className={`${style["auth-wrapper"]} ${style["auth-fadeInDown"]}`}>{form}</div>;
@@ -118,15 +118,15 @@ class Authentication extends Component {
 const mapStateToProps = state => {
   // console.log(state);
   return {
-    changePass: state.login.changePass,
-    username: state.login.user,
-    password: state.login.pass,
-    acToken: state.login.acToken,
-    idToken: state.login.idToken,
-    loading: state.login.loading,
-    loggedIn: state.login.loggedIn,
-    error: state.login.error,
-    multiFactor: state.login.mfa
+    changePass: state.loginR.changePass,
+    username: state.loginR.user,
+    password: state.loginR.pass,
+    acToken: state.loginR.acToken,
+    idToken: state.loginR.idToken,
+    loading: state.loginR.loading,
+    loggedIn: state.loginR.loggedIn,
+    error: state.loginR.error,
+    multiFactor: state.loginR.mfa
   };
 };
 const mapDispatchToProps = dispatch => {

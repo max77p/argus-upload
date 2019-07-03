@@ -20,7 +20,7 @@ class App extends Component {
           <Route exact path="/" component={Authentication} />
           <PasswordChangeRoute
             authenticated={this.props.changePass}
-            path="/changePass"
+            path="/changepass"
             component={ChangePass}
           />
           <MFAChangeRoute
@@ -28,12 +28,12 @@ class App extends Component {
             path="/mfa"
             component={MultiFactor}
           />
-          {/* <PrivateRoute
+          <PrivateRoute
             authenticated={this.props.loggedIn}
             path="/portal"
             component={Portal}
-          /> */}
-          <Route path="/portal" component={Portal}/>
+          />
+          {/* <Route path="/portal" component={Portal}/> */}
           {/* <Route path="/changePass" component={ChangePass}/> */}
           {/* <Route authenticated={this.props.changePass} path="/changePass" component={ChangePass} /> */}
           <Route path="*" component={Authentication} />
@@ -44,17 +44,17 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  // console.log(state.login);
+  console.log(state.loginR);
   return {
-    changePass: state.login.changePass,
-    username: state.login.user,
-    password: state.login.pass,
-    acToken: state.login.acToken,
-    idToken: state.login.idToken,
-    loading: state.login.loading,
-    loggedIn: state.login.loggedIn,
-    error: state.login.error,
-    multiFactor: state.login.mfa
+    changePass: state.loginR.changePass,
+    username: state.loginR.user,
+    password: state.loginR.pass,
+    acToken: state.loginR.acToken,
+    idToken: state.loginR.idToken,
+    loading: state.loginR.loading,
+    loggedIn: state.loginR.loggedIn,
+    error: state.loginR.error,
+    multiFactor: state.loginR.mfa
   };
 };
 

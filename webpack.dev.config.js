@@ -53,25 +53,21 @@ module.exports = {
         ]
       },
       {
-        test: /\.(png|jpe?g|gif)$/,
+        test: /\.(png|jpe?g|gif|svg)$/,
         loader: "url-loader?limit=8000&name=images/[name].[ext]"
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-    }
+      }
     ]
   },
-  devServer: {
-    port: 3000,
-    open: true,
-    proxy: {
-      "/main": {
-        target: "http://localhost:8080"
-      }
-    },
-    historyApiFallback: true
-  },
+  // devServer: {
+  //   port: 3000,
+  //   open: true,
+  //   proxy: {
+  //     "/": {
+  //       target: "http://localhost:8080"
+  //     }
+  //   },
+  //   historyApiFallback: true
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + "/src/index.html",

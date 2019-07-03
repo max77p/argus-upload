@@ -1,8 +1,7 @@
 const MainUserRouter=require("express").Router();
 
 // MainUserRouter.route("/activate").get(require("./activate")).post(require("./activate"));
-
-MainUserRouter.use("/approval",require("./approval"));
+MainUserRouter.use("/auth",require("./portal"));
 // MainUserRouter.use("/register",require("./register"));
 
 

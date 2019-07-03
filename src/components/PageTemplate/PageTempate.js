@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import classes from "./PageTemplate.css";
+import * as style from "./PageTemplate.css";
 // import logo from "../../assets/images/riocan-vendorportal-logo.png";
 
 import { Redirect } from "react-router-dom";
@@ -10,12 +10,12 @@ import { connect } from "react-redux";
 const ResumePage = props => {
   
   return (
-    <div className={`${classes["template-card-layout"]}`}>
-      <div className={classes["innerLayout"]}>
-        <div className={classes["page-header"]}>
+    <div className={`${style["template-card-layout"]}`}>
+      <div className={style["innerLayout"]}>
+        <div className={style["page-header"]}>
             {props.pageTitle}
         </div>
-        <div className={classes["page-content"]}>
+        <div className={style["page-content"]}>
           {/* {props.experience} */}
           {props.bodyData}
         </div>

@@ -237,15 +237,15 @@ class UploadPortal extends Component {
 const mapStateToProps = (state) => {
   // console.log(state);
   return {
-    filename: state.afterUpload.fileName,
-    statusOk: state.afterUpload.s3positive,
-    statusErr: state.afterUpload.s3negative,
-    email: state.login.user,
-    acToken: state.login.acToken,
-    idToken: state.login.idToken,
-    uploadProgress: state.afterUpload.uploadProgress,
-    fileTypeError: state.afterUpload.fileTypeError,
-    signedOut: state.afterUpload.signOut
+    filename: state.uploadR.fileName,
+    statusOk: state.uploadR.s3positive,
+    statusErr: state.uploadR.s3negative,
+    email: state.loginR.user,
+    acToken: state.loginR.acToken,
+    idToken: state.loginR.idToken,
+    uploadProgress: state.uploadR.uploadProgress,
+    fileTypeError: state.uploadR.fileTypeError,
+    signedOut: state.uploadR.signOut
   }
 }
 const mapDispatchToProps = dispatch => {

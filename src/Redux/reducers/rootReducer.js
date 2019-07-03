@@ -4,8 +4,8 @@ import loginReducer from './loginReducer';
 import uploadReducer from "./uploadReducer";
 
 const rootReducer= combineReducers({
-    login:loginReducer,
-    afterUpload:uploadReducer
+    loginR:loginReducer,
+    uploadR:uploadReducer
 })
 
 export default rootReducer;
