@@ -43,16 +43,16 @@ module.exports = (env, argv) => {
           }
         }
       ]
-    },
-    devServer: {
-      port: 3000,
-      open: true,
-      proxy: {
-        "/": {
-          target: "http://localhost:8080"
-        }
-      },
-      historyApiFallback: true
-    },
+    }
+    // devServer: {
+    //   port: 3000,
+    //   open: true,
+    //   proxy: {
+    //     "/": {
+    //       target: "http://localhost:8080"
+    //     }
+    //   },
+    //   historyApiFallback: true
+    // },
   };
 };

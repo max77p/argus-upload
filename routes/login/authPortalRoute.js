@@ -20,7 +20,7 @@ var cognitoidentity = new AWS.CognitoIdentity();
 
 router.post("/authenticateuser", (req, res) => {
   console.log("server");
-  console.log(process.env.IdentityPoolId);
+  // console.log(process.env.IdentityPoolId);
   // console.log(testmod.showstuff())
   // console.log("----------")
   const val = req.body;

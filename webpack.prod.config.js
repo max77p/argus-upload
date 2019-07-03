@@ -60,16 +60,16 @@ module.exports = {
     // }
     ]
   },
-  devServer: {
-    port: 3000,
-    open: true,
-    proxy: {
-      "/main": {
-        target: "http://localhost:8080"
-      }
-    },
-    historyApiFallback: true
-  },
+  // devServer: {
+  //   port: 3000,
+  //   open: true,
+  //   proxy: {
+  //     "/main": {
+  //       target: "http://localhost:8080"
+  //     }
+  //   },
+  //   historyApiFallback: true
+  // },
   plugins: [
     new HtmlWebpackPlugin({
       template: __dirname + "/src/index.html",
