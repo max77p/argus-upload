@@ -1,4 +1,3 @@
-require("dotenv").config();
 
 function createLoginMap(identpoolid,cognitoidp,token,user,region) {
     return {
@@ -10,14 +9,4 @@ function createLoginMap(identpoolid,cognitoidp,token,user,region) {
       region: region
     };
   }
-
-  storeData={
-    token:null,
-    user:null
-    
-  }
-
-  function showstuff(){
-    console.log(process.env.IdentityPoolId)
-  }
-  module.exports={createLoginMap,storeData,showstuff}
+module.exports={createLoginMap};

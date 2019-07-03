@@ -1,6 +1,6 @@
 const parse = require("csv-parse");
 const fs = require("fs");
-var readFile = function(eldata, userData, partnerNameFromFile, callback) {
+let readFile = function(eldata, userData, partnerNameFromFile, callback) {
   var result = [];
 
   parse(eldata, {
@@ -63,6 +63,4 @@ function passVerifier(result, userData, partnerNameFromFile, callback) {
   }
 }
 
-module.exports = {
-  readFile
-};
+module.exports ={readFile};

@@ -14,7 +14,7 @@ const headID = {
   // "Month": 22,
   // "Transaction Date":24
 };
-var storeData = function(el) {
+let storeData = function(el) {
   var finalForJDE = [];
   var headerCheck=[];
   var originalData;
@@ -63,4 +63,4 @@ var storeData = function(el) {
     return { finalForJDE, originalData };
   }
 };
-module.exports = { storeData };
+module.exports = {storeData} ;

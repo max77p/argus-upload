@@ -8,7 +8,6 @@ const parse = require("csv-parse");
 // global.fetch = require('node-fetch');
 var jdeAlgo = require("../login/jdeLambdaParser");
 var partnerCheck = require("../login/partnerCheck");
-const testmod = require("../loginMapCreator");
 // Load the AWS SDK for Node.js
 var AWS = require("aws-sdk");
 AWS.config.update({
@@ -232,6 +231,7 @@ router.post("/transfer/sendtos3", function(req, res, next) {
   console.log("-----on upload-----");
   AWS.config.credentials.get(function(err) {
     if (err) {
+      console.log(err)
       res.json(err);
     } else {
       // console.log(AWS.config.credentials.data)
@@ -244,8 +244,8 @@ router.post("/transfer/sendtos3", function(req, res, next) {
         secretAccessKey: `${secretAccessKey}`,
         sessionToken: `${sessionToken}`
       };
-      // console.log("last creds");
-      // console.log(creds)
+      console.log("last creds");
+      console.log(creds)
       let s3 = new AWS.S3({
         creds,
         signatureVersion: "v4"

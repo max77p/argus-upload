@@ -13,6 +13,7 @@ module.exports = {
     chunkFilename: "[name].bundle.js",
     publicPath: "/"
   },
+  mode: "production",
   target: "web",
   resolve: {
     extensions: [".js", ".jsx"]
@@ -79,6 +80,12 @@ module.exports = {
     })
   ],
   optimization: {
-    minimizer: [new UglifyJsPlugin()]
+    minimizer: [new UglifyJsPlugin({
+      uglifyOptions: {
+        compress: {
+          unused: false
+        }
+      }
+    })]
   }
 };
