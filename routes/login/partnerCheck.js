@@ -35,11 +35,11 @@ function passVerifier(result, userData, partnerNameFromFile, callback) {
   if (result.includes(partnerNameFromFile.toUpperCase())) {
     try {
       Object.values(userData["originalData"]).forEach(obj => {
-        // console.log(obj['Partner Code'].toUpperCase())
-        if (obj["Partner Code"].toUpperCase() !== getFirstPartnerID) {
+        // console.log(obj['Code'].toUpperCase())
+        if (obj["Code"].toUpperCase() !== getFirstPartnerID) {
           //if mismatch do this
           // console.log("no match");
-          firstTest.val = obj["Partner Code"].toUpperCase();
+          firstTest.val = obj["Code"].toUpperCase();
           firstTest.status = false;
           throw "unauthorized";
         } else {
@@ -51,10 +51,12 @@ function passVerifier(result, userData, partnerNameFromFile, callback) {
       });
     } catch (e) {
       if (e === "unauthorized") {
+        // console.log("not exist")
         callback("Partner does not exist");
         return false;
       }
     }
+    // console.log("exist")
     callback("Partner exists");
   } else {
     callback("Partner does not exist");

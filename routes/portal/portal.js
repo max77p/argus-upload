@@ -95,8 +95,8 @@ router.post("/transfer/checks3", function(req, res, next) {
         // console.log(AWS.config.credentials.data)
         accessKeyId = AWS.config.credentials.accessKeyId;
         secretAccessKey = AWS.config.credentials.secretAccessKey;
-        console.log("started to check s3 secret")
-        console.log(secretAccessKey)
+        // console.log("started to check s3 secret")
+        // console.log(secretAccessKey)
         sessionToken = AWS.config.credentials.sessionToken;
         let creds = {
           accessKeyId: `${accessKeyId}`,
@@ -176,7 +176,7 @@ router.post("/transfer/checks3", function(req, res, next) {
           ) {
             if (noEmailError) {
               // console.log("noemail");
-              // console.log(noEmailError);
+              console.log(noEmailError);
               res.json("noEmail"); //---if email doesn't exist throw the error back saying email doesn't exist if not check if file exists inside email
             } else {
               //if email exists, then check if object exists in Active, if not then make sure its not in Archive either before allowing upload
