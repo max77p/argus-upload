@@ -259,9 +259,9 @@ router.post("/transfer/sendtos3", function(req, res, next) {
       s3.putObject(putObjectData, async (err2, data2) => {
         if (err2) {
           //This happens if error in putobject occurs
-          // var paramsLogout = {
-          //     AccessToken: `${forDoingPutInS3.acToken}` /* required */
-          // };
+          var paramsLogout = {
+              AccessToken: `${forDoingPutInS3.acToken}` /* required */
+          };
           cognitoidentityserviceprovider.globalSignOut(paramsLogout, function(
             errout1,
             dataout1
