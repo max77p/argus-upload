@@ -27,6 +27,21 @@ function checkUserEmailInActive(Main_Bucket, email) {
   };
 }
 
+function putObjectData(
+  Main_Bucket,
+  email,
+  jsonName,
+  jsonReadyForS3,
+  Encryption
+) {
+  return {
+    Bucket: Main_Bucket,
+    Key: `RCL/Active/Users/${email}/${jsonName}`,
+    Body: JSON.stringify(jsonReadyForS3),
+    ServerSideEncryption:Encryption
+  };
+}
+
 function temporaryCredCreator(accessKeyId, secretAccessKey, sessionToken) {
   return {
     accessKeyId: accessKeyId,
@@ -57,7 +72,7 @@ function getTempCreds(callback) {
       );
       let s3 = new AWS.S3(s3CredObject(creds));
 
-      callback(s3)
+      callback(s3);
     } else {
       console.log("errored on creds");
       console.log(err);
@@ -70,6 +85,7 @@ module.exports = {
   checkUserObjectInActive,
   checkUserObjectInArchive,
   checkUserEmailInActive,
+  putObjectData,
   temporaryCredCreator,
   s3CredObject,
   storeTemp,

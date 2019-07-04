@@ -167,19 +167,14 @@ router.post("/transfer/checks3", function(req, res, next) {
   } //----------end of runNext()
 }); //-------------------for creating a object from email attachment in json
 
+
 //-------------------for creating a object from email attachment in json
 router.post("/transfer/sendtos3", function(req, res, next) {
   let forDoingPutInS3 = req.body.val;
   console.log("-----on upload-----");
   // Temporary credentials will be available when this function is called.
   constructor.getTempCreds(s3InputActions);
-
-  const putObjectData = {
-    Bucket: process.env.Main_Bucket,
-    Key: `RCL/Active/Users/${req.body.val.email}/${req.body.jsonName}`,
-    Body: JSON.stringify(req.body.jsonReadyForS3),
-    ServerSideEncryption: process.env.Encryption
-  };
+  let putObjectData=constructor.putObjectData(process.env.Main_Bucket,req.body.val.email,req.body.jsonName,req.body.jsonReadyForS3,process.env.Encryption)
 
   function s3InputActions(s3) {
     s3.putObject(putObjectData, async (err2, data2) => {
