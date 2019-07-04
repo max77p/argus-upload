@@ -1,22 +1,17 @@
 const express = require("express");
 const router = express.Router();
 require("dotenv").config();
-var multer = require("multer");
-var upload = multer();
-const parse = require("csv-parse");
 // global.fetch = require("node-fetch");
 let testmod = require("../loginMapCreator");
-var jdeAlgo = require("../login/jdeLambdaParser");
-var partnerCheck = require("../login/partnerCheck");
+let constructor = require("../constructors");
 
 var AWS = require("aws-sdk");
 
 AWS.config.update({
-  region: 'ca-central-1'
+  region: "ca-central-1"
 });
 
 const cognitoidentityserviceprovider = new AWS.CognitoIdentityServiceProvider();
-var cognitoidentity = new AWS.CognitoIdentity();
 
 router.post("/authenticateuser", (req, res) => {
   console.log("server");
@@ -25,7 +20,7 @@ router.post("/authenticateuser", (req, res) => {
   // console.log("----------")
   const val = req.body;
   const user = val.value.user;
-  console.log(val)
+  console.log(val);
   var loginParams = {
     AuthFlow: "USER_PASSWORD_AUTH",
     /* required */
@@ -59,26 +54,16 @@ router.post("/authenticateuser", (req, res) => {
         const accessToken = data.AuthenticationResult.AccessToken;
         // Add the User's Id Token to the Cognito credentials login map.
         const idToken = data.AuthenticationResult.IdToken;
-        AWS.config.credentials=new AWS.CognitoIdentityCredentials(testmod.createLoginMap(process.env.IdentityPoolId,process.env.CognitoIdp,idToken,user,process.env.Region))
+        AWS.config.credentials = new AWS.CognitoIdentityCredentials(
+          testmod.createLoginMap(
+            process.env.IdentityPoolId,
+            process.env.CognitoIdp,
+            idToken,
+            user,
+            process.env.Region
+          )
+        );
 
-
-        // AWS.config.credentials.get(function(err) {
-        //   if (!err) {
-        //     let accessKeyId, secretAccessKey, sessionToken;
-        //     // console.log(Object.keys(AWS.config.credentials.data.Credentials));
-        //     // console.log("-----before check-----")
-        //     // console.log(AWS.config.credentials);
-        //     // console.log(AWS.config.credentials.data)
-        //     accessKeyId = AWS.config.credentials.accessKeyId;
-        //     secretAccessKey = AWS.config.credentials.secretAccessKey;
-        //     sessionToken = AWS.config.credentials.sessionToken;
-        //     console.log("session token")
-        //     console.log(sessionToken);
-        //   } else {
-        //     console.log("errored on auth");
-        //     console.log(err);
-        //   }
-        // });
         res.json({
           accessToken,
           idToken,
@@ -164,15 +149,15 @@ router.post("/sendmfa", (req, res) => {
 
       const accessToken = data.AuthenticationResult.AccessToken;
       const idToken = data.AuthenticationResult.IdToken;
-      AWS.config.credentials=new AWS.CognitoIdentityCredentials(testmod.createLoginMap(process.env.IdentityPoolId,process.env.CognitoIdp,idToken,user,process.env.Region))
-      // AWS.config.credentials = new AWS.CognitoIdentityCredentials({
-      //   IdentityPoolId: process.env.IdentityPoolId,
-      //   Logins: {
-      //     [process.env.CognitoIdp]: idToken
-      //   },
-      //   LoginId: val.value.user,
-      //   region: process.env.Region
-      // });
+      AWS.config.credentials = new AWS.CognitoIdentityCredentials(
+        testmod.createLoginMap(
+          process.env.IdentityPoolId,
+          process.env.CognitoIdp,
+          idToken,
+          user,
+          process.env.Region
+        )
+      );
 
       res.json({
         accessToken,
@@ -208,6 +193,5 @@ router.post("/logoutuser", (req, res) => {
     }
   });
 });
-
 
 module.exports = router;

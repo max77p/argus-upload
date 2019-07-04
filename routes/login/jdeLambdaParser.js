@@ -8,16 +8,11 @@ const colID = {
   ID: 26
 };
 
-const headID = {
-  // "Partner Code": 16
-  // "Year": 20,
-  // "Month": 22,
-  // "Transaction Date":24
-};
+
 let storeData = function(el) {
-  var finalForJDE = [];
-  var headerCheck=[];
-  var originalData;
+  let finalForJDE = [];
+  let headerCheck=[];
+  let originalData;
 
   originalData = el;
 
