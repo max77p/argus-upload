@@ -20,7 +20,7 @@ let checkFile = function (file) {
     const checkFormat = fileFormat.split("_");
     var d = new Date();
     var currentYear = d.getFullYear();
-    var currentMonth = d.getMonth();
+    var currentMonth = d.getMonth()+1;
     let convertedMonth;
     if (currentMonth.toString().length < 2) {
         convertedMonth = `0${(currentMonth + 1).toString()}`;
@@ -28,7 +28,7 @@ let checkFile = function (file) {
         // console.log(convertedMonth);
     }
     else {
-        convertedMonth = currentMonth + 1;
+        convertedMonth = currentMonth.toString();
         // console.log("****");
         // console.log(convertedMonth);
     }
