@@ -24,13 +24,13 @@ let checkFile = function (file) {
     let convertedMonth;
     if (currentMonth.toString().length < 2) {
         convertedMonth = `0${(currentMonth + 1).toString()}`;
-        // console.log("----")
-        // console.log(convertedMonth);
+        console.log("----")
+        console.log(convertedMonth);
     }
     else {
         convertedMonth = currentMonth.toString();
-        // console.log("****");
-        // console.log(convertedMonth);
+        console.log("****");
+        console.log(convertedMonth);
     }
 
     let error = [];
