@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "@babel/runtime": "^7.4.5",
-    "aws-sdk": "^2.487.0",
+    "aws-sdk": "^2.814.0",
     "axios": "^0.19.0",
     "concurrently": "^4.1.0",
     "csv-parse": "^4.6.5",
